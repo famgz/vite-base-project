@@ -1,19 +1,26 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import HomePage from './pages/home';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <HomePage />,
-  },
-  {
-    path: '/test',
-    element: <div>Hello test!</div>,
-  },
-]);
+import HomePage from '@/pages/home';
+import NotFound from '@/pages/not-found';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
 }
 
-export default App;
+function WrappedApp() {
+  return (
+    <BrowserRouter>
+      <div className="flex min-h-screen flex-col">
+        <main className="flex-1">
+          <App />
+        </main>
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default WrappedApp;
