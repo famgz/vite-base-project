@@ -1,5 +1,6 @@
 import pluginAnimate from 'tailwindcss-animate';
 import type { Config } from 'tailwindcss';
+import { customClasses } from './custom-classes';
 
 const config: Config = {
   darkMode: ['class'],
@@ -59,7 +60,12 @@ const config: Config = {
       },
     },
   },
-  plugins: [pluginAnimate],
+  plugins: [
+    pluginAnimate,
+    ({ addUtilities }) => {
+      addUtilities(customClasses);
+    },
+  ],
 };
 
 export default config;

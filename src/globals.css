@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  min-width: 0;
-}
-
 @layer base {
   :root {
     --background: 240 10% 3.9%;
@@ -62,15 +58,12 @@
     --chart-5: 27 87% 67%;
   }
 }
+
 @layer base {
   * {
-    @apply border-border;
+    @apply min-w-0 border-border;
   }
   body {
     @apply bg-background text-foreground;
   }
-}
-
-.flex-center {
-  @apply flex items-center justify-center;
 }
