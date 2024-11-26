@@ -1,4 +1,5 @@
 import GlobalLoader from '@/components/global-loader';
+import { ColorThemeToggle } from '@/components/color-theme-toggle';
 import { useLoader } from '@/context/loader';
 import HomePage from '@/pages/home';
 import NotFound from '@/pages/not-found';
@@ -20,6 +21,9 @@ function WrappedApp() {
     <BrowserRouter>
       {loading && <GlobalLoader />}
       <div className="flex min-h-screen flex-col">
+        <div className="flex w-full justify-end">
+          <ColorThemeToggle />
+        </div>
         <main className="flex-1">
           <App />
         </main>
